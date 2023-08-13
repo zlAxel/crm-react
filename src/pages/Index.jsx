@@ -1,10 +1,12 @@
 // ! importamos los hooks
 import { useLoaderData } from "react-router-dom";
 import { Cliente } from "../components/Cliente";
-import { clientes } from "../data/clientes";
+import { obtenerClientes } from "../api/clientes";
 
 // ! Declaramos el loader
 export function loader(){
+    const clientes = obtenerClientes()
+    
     return clientes
 }
 

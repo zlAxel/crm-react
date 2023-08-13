@@ -7,6 +7,8 @@ import './assets/css/index.css'
 import { Layout } from './components/Layout';
 import { NuevoCliente, action as actionNuevoCliente } from './pages/NuevoCliente';
 import { Index, loader as loaderClientes } from './pages/Index';
+import { ErrorPage } from './components/ErrorPage';
+import { EditarCliente, loader as loaderEditarCliente } from './components/EditarCliente';
 
 // ! ----------------------------------
 // ! Creación de rutas
@@ -19,12 +21,20 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <Index />,
-				loader: loaderClientes
+				loader: loaderClientes,
+				errorElement: <ErrorPage />
 			},
 			{
 				path: '/clientes/nuevo',
 				element: <NuevoCliente />,
-				action: actionNuevoCliente
+				action: actionNuevoCliente,
+				errorElement: <ErrorPage />
+			},
+			{
+				path: '/clientes/editar/:clienteId',
+				element: <EditarCliente />,
+				loader: loaderEditarCliente,
+				errorElement: <ErrorPage />
 			}
 		]
 	}

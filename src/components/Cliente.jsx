@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 export const Cliente = ({ cliente }) => {
+
+    // ! Hook para redireccionar
+    const navigate = useNavigate()
 
     // ! Destructuramos el cliente
     const { id, nombre, apellido, email, empresa, telefono } = cliente
@@ -20,7 +25,7 @@ export const Cliente = ({ cliente }) => {
                 </p>
             </td>
             <td className="text-center">
-                <button type="button" className="text-gray-700 hover:text-gray-800 uppercase font-bold text-sm tracking-widest mr-10">Editar</button>
+                <button type="button" onClick={ () => navigate(`/clientes/editar/${ id }`) } className="text-gray-700 hover:text-gray-800 uppercase font-bold text-sm tracking-widest mr-10">Editar</button>
                 <button type="button" className="text-red-600 hover:text-red-700 uppercase font-bold text-sm tracking-widest">Eliminar</button>
             </td>
         </tr>

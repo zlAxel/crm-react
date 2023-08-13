@@ -1,6 +1,7 @@
-import { useNavigate, Form, useActionData } from "react-router-dom";
+import { useNavigate, Form, useActionData, redirect } from "react-router-dom";
 import { Error } from "../components/Error";
 import { Formulario } from "../components/Formulario";
+import { crearCliente } from "../api/clientes";
 
 export async function action({ request }){
     
@@ -19,12 +20,14 @@ export async function action({ request }){
     if( Object.values( datos ).includes('') ){
         errores.push('Todos los campos son obligatorios')
     }
-    
-    
-    if( Object.keys( datos ).length ){
+
+    if( Object.keys( errores ).length ){
         return errores
     }
-    return null
+
+    await crearCliente( datos )
+
+    return redirect('/')
 }
 
 export const NuevoCliente = () => {
