@@ -1,4 +1,6 @@
 export const Formulario = ({cliente}) => {
+    // * Si el cliente existe, desestructuramos sus datos
+    const { nombre, empresa, email, telefono, notas } = cliente || {}
     return (
         <>
             <div className="mb-4">
@@ -12,6 +14,7 @@ export const Formulario = ({cliente}) => {
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Nombre del Cliente"
                     name="nombre"
+                    defaultValue={ nombre }
                 />
             </div>
             <div className="mb-4">
@@ -25,6 +28,7 @@ export const Formulario = ({cliente}) => {
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Empresa del Cliente"
                     name="empresa"
+                    defaultValue={ empresa }
                 />
             </div>
 
@@ -39,6 +43,7 @@ export const Formulario = ({cliente}) => {
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Email del Cliente"
                     name="email"
+                    defaultValue={ email }
                 />
             </div>
 
@@ -53,6 +58,7 @@ export const Formulario = ({cliente}) => {
                     className="mt-2 block w-full p-3 bg-gray-50"
                     placeholder="Teléfono del Cliente"
                     name="telefono"
+                    defaultValue={ telefono }
                 />
             </div>
 
@@ -68,6 +74,7 @@ export const Formulario = ({cliente}) => {
                     className="mt-2 block w-full p-3 bg-gray-50 h-40 align-self"
                     placeholder="Notas del Cliente"
                     name="notas"
+                    defaultValue={ notas }
                 />
             </div>
         </>

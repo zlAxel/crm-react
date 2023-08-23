@@ -44,3 +44,43 @@ export async function obtenerCliente( id ) {
 
     return resultado
 }
+
+// ! -----------------------------------------------
+// ! Funcion para actualizar un cliente
+
+export async function actualizarCliente( id, cliente ) {
+    try {
+        const url = `${ import.meta.env.VITE_API_URL }/${ id }`
+        
+        const respuesta = await fetch( url, {
+            method: 'PUT',
+            body: JSON.stringify( cliente ),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        await respuesta.json()
+    } catch (error) {
+        console.log( error );
+    }
+
+    return null
+}
+
+// ! -----------------------------------------------
+// ! Funcion para eliminar un cliente
+
+export async function eliminarCliente( id ) {
+    try {
+        const url = `${ import.meta.env.VITE_API_URL }/${ id }`
+        
+        const respuesta = await fetch( url, {
+            method: 'DELETE'
+        })
+        await respuesta.json()
+    } catch (error) {
+        console.log( error );
+    }
+
+    return null
+}

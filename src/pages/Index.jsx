@@ -14,14 +14,14 @@ export function loader(){
 export const Index = () => {
 
     // ! Obtenemos los datos del loader (clientes)
-    const data = useLoaderData()
+    const clientes = useLoaderData()
 
     return (
         <>
             <h1 className="font-black text-4xl text-gray-900">Clientes</h1>
             <p className="mt-3">Administra tus clientes</p>
 
-            { data.length ? (
+            { clientes.length ? (
                 <table className="table-auto shadow mt-10 w-full">
                     <thead className="bg-gray-800 text-white">
                         <tr className="[&>th]:w-1/5 [&>th]:py-2">
@@ -32,7 +32,7 @@ export const Index = () => {
                     </thead>
                     <tbody className="bg-white">
                         { 
-                            data.map( cliente => (
+                            clientes.map( cliente => (
                                 <Cliente key={ cliente.id } cliente={ cliente } />
                             ))
                         }
